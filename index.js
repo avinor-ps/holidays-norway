@@ -18,65 +18,69 @@ const getEaster = (year) => {
   const p = n0 % 31 + 1;
   return new Date(year,n,p);
 }
+const NORWEGIAN = 'no';
+const ENGLISH = 'en';
 
-export default (year) => {
+export default (year, options={}) => {
   const easter = getEaster(year);
+  const locale = options.locale === ENGLISH ? ENGLISH : NORWEGIAN;
+  const format = options.format === '' ? format : options.format;
   return [
     {
-      name: 'Palmesøndag',
-      date: moment(easter).subtract(7, 'days').format('YYYY-MM-DD'),
+      name: locale === NORWEGIAN ? 'Palmesøndag' : 'Palm Sunday',
+      date: moment(easter).subtract(7, 'days').startOf('day').format(format),
     },
     {
-      name: 'Skjærtorsdag',
-      date: moment(easter).subtract(3, 'days').format('YYYY-MM-DD'),
+      name: locale === NORWEGIAN ? 'Skjærtorsdag' : 'Maundy Thursday',
+      date: moment(easter).subtract(3, 'days').startOf('day').format(format),
     },
     {
-      name: 'Langfredag',
-      date: moment(easter).subtract(2, 'days').format('YYYY-MM-DD'),
+      name: locale === NORWEGIAN ? 'Langfredag' : 'Good Friday',
+      date: moment(easter).subtract(2, 'days').startOf('day').format(format),
     },
     {
-      name: '1. påskedag',
-      date: moment(easter).format('YYYY-MM-DD'),
+      name: locale === NORWEGIAN ? '1. påskedag' : 'First day of Easter',
+      date: moment(easter).startOf('day').format(format),
     },
     {
-      name: '2. påskedag',
-      date: moment(easter).add(1, 'days').format('YYYY-MM-DD'),
+      name: locale === NORWEGIAN ? '2. påskedag' : 'Easter Monday',
+      date: moment(easter).add(1, 'days').startOf('day').format(format),
     },
     {
-      name: 'Kristi Himmelsprettsdag',
-      date: moment(easter).add(39, 'days').format('YYYY-MM-DD'),
+      name: locale === NORWEGIAN ? 'Kristi Himmelsprettsdag' : 'Christs Ascension Day',
+      date: moment(easter).add(39, 'days').startOf('day').format(format),
     },
     {
-      name: '1. pinsedag',
-      date: moment(easter).add(49, 'days').format('YYYY-MM-DD'),
+      name: locale === NORWEGIAN ? '1. pinsedag' : 'Whitsunday',
+      date: moment(easter).add(49, 'days').startOf('day').format(format),
     },
     {
-      name: '2. pinsedag',
-      date: moment(easter).add(50, 'days').format('YYYY-MM-DD'),
+      name: locale === NORWEGIAN ? '2. pinsedag' : 'Whitsmonday',
+      date: moment(easter).add(50, 'days').startOf('day').format(format),
     },
     {
-      name: 'Nyttårsdag',
-      date: moment().year(year).startOf('year').format('YYYY-MM-DD'),
+      name: locale === NORWEGIAN ? 'Nyttårsdag' : 'New years day',
+      date: moment().year(year).startOf('year').startOf('day').format(format),
     },
     {
-      name: '1. mai',
-      date: moment().year(year).month('may').date(1).format('YYYY-MM-DD'),
+      name: locale === NORWEGIAN ? '1. mai' : 'May Day',
+      date: moment().year(year).month('may').date(1).startOf('day').format(format),
     },
     {
-      name: '17. mai',
-      date: moment().year(year).month('may').date(17).format('YYYY-MM-DD'),
+      name: locale === NORWEGIAN ? '17. mai' : 'Constitution Day',
+      date: moment().year(year).month('may').date(17).startOf('day').format(format),
     },
     {
-      name: '1. juledag',
-      date: moment().year(year).month('december').date(25).format('YYYY-MM-DD'),
+      name: locale === NORWEGIAN ? 'juleaften' : 'Christmas Eve',
+      date: moment().year(year).month('december').date(24).startOf('day').format(format),
     },
     {
-      name: '2. juledag',
-      date: moment().year(year).month('december').date(26).format('YYYY-MM-DD'),
+      name: locale === NORWEGIAN ? '1. juledag' : 'Christmas Day',
+      date: moment().year(year).month('december').date(25).startOf('day').format(format),
     },
     {
-      name: 'Nyttårsaften',
-      date: moment().year(year).month('december').date(31).format('YYYY-MM-DD'),
+      name: locale === NORWEGIAN ? '2. juledag' : 'Boxing Day',
+      date: moment().year(year).month('december').date(26).startOf('day').format(format),
     }
   ];
 };

@@ -28,50 +28,56 @@ var getEaster = function getEaster(year) {
   var p = n0 % 31 + 1;
   return new Date(year, n, p);
 };
+var NORWEGIAN = 'no';
+var ENGLISH = 'en';
 
 exports.default = function (year) {
+  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
   var easter = getEaster(year);
+  var locale = options.locale === ENGLISH ? ENGLISH : NORWEGIAN;
+  var format = options.format === '' ? format : options.format;
   return [{
-    name: 'Palmesøndag',
-    date: (0, _moment2.default)(easter).subtract(7, 'days').format('YYYY-MM-DD')
+    name: locale === NORWEGIAN ? 'Palmesøndag' : 'Palm Sunday',
+    date: (0, _moment2.default)(easter).subtract(7, 'days').startOf('day').format(format)
   }, {
-    name: 'Skjærtorsdag',
-    date: (0, _moment2.default)(easter).subtract(3, 'days').format('YYYY-MM-DD')
+    name: locale === NORWEGIAN ? 'Skjærtorsdag' : 'Maundy Thursday',
+    date: (0, _moment2.default)(easter).subtract(3, 'days').startOf('day').format(format)
   }, {
-    name: 'Langfredag',
-    date: (0, _moment2.default)(easter).subtract(2, 'days').format('YYYY-MM-DD')
+    name: locale === NORWEGIAN ? 'Langfredag' : 'Good Friday',
+    date: (0, _moment2.default)(easter).subtract(2, 'days').startOf('day').format(format)
   }, {
-    name: '1. påskedag',
-    date: (0, _moment2.default)(easter).format('YYYY-MM-DD')
+    name: locale === NORWEGIAN ? '1. påskedag' : 'First day of Easter',
+    date: (0, _moment2.default)(easter).startOf('day').format(format)
   }, {
-    name: '2. påskedag',
-    date: (0, _moment2.default)(easter).add(1, 'days').format('YYYY-MM-DD')
+    name: locale === NORWEGIAN ? '2. påskedag' : 'Easter Monday',
+    date: (0, _moment2.default)(easter).add(1, 'days').startOf('day').format(format)
   }, {
-    name: 'Kristi Himmelsprettsdag',
-    date: (0, _moment2.default)(easter).add(39, 'days').format('YYYY-MM-DD')
+    name: locale === NORWEGIAN ? 'Kristi Himmelsprettsdag' : 'Christs Ascension Day',
+    date: (0, _moment2.default)(easter).add(39, 'days').startOf('day').format(format)
   }, {
-    name: '1. pinsedag',
-    date: (0, _moment2.default)(easter).add(49, 'days').format('YYYY-MM-DD')
+    name: locale === NORWEGIAN ? '1. pinsedag' : 'Whitsunday',
+    date: (0, _moment2.default)(easter).add(49, 'days').startOf('day').format(format)
   }, {
-    name: '2. pinsedag',
-    date: (0, _moment2.default)(easter).add(50, 'days').format('YYYY-MM-DD')
+    name: locale === NORWEGIAN ? '2. pinsedag' : 'Whitsmonday',
+    date: (0, _moment2.default)(easter).add(50, 'days').startOf('day').format(format)
   }, {
-    name: 'Nyttårsdag',
-    date: (0, _moment2.default)().year(year).startOf('year').format('YYYY-MM-DD')
+    name: locale === NORWEGIAN ? 'Nyttårsdag' : 'New years day',
+    date: (0, _moment2.default)().year(year).startOf('year').startOf('day').format(format)
   }, {
-    name: '1. mai',
-    date: (0, _moment2.default)().year(year).month('may').date(1).format('YYYY-MM-DD')
+    name: locale === NORWEGIAN ? '1. mai' : 'May Day',
+    date: (0, _moment2.default)().year(year).month('may').date(1).startOf('day').format(format)
   }, {
-    name: '17. mai',
-    date: (0, _moment2.default)().year(year).month('may').date(17).format('YYYY-MM-DD')
+    name: locale === NORWEGIAN ? '17. mai' : 'Constitution Day',
+    date: (0, _moment2.default)().year(year).month('may').date(17).startOf('day').format(format)
   }, {
-    name: '1. juledag',
-    date: (0, _moment2.default)().year(year).month('december').date(25).format('YYYY-MM-DD')
+    name: locale === NORWEGIAN ? 'juleaften' : 'Christmas Eve',
+    date: (0, _moment2.default)().year(year).month('december').date(24).startOf('day').format(format)
   }, {
-    name: '2. juledag',
-    date: (0, _moment2.default)().year(year).month('december').date(26).format('YYYY-MM-DD')
+    name: locale === NORWEGIAN ? '1. juledag' : 'Christmas Day',
+    date: (0, _moment2.default)().year(year).month('december').date(25).startOf('day').format(format)
   }, {
-    name: 'Nyttårsaften',
-    date: (0, _moment2.default)().year(year).month('december').date(31).format('YYYY-MM-DD')
+    name: locale === NORWEGIAN ? '2. juledag' : 'Boxing Day',
+    date: (0, _moment2.default)().year(year).month('december').date(26).startOf('day').format(format)
   }];
 };
