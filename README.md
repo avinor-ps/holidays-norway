@@ -1,3 +1,8 @@
+holidays-norway
+===
+
+This repo was initially created by [Gunnar Forces](https://github.com/gunnar2k/holidays-norway) and then later [Khaliq Gant](https://github.com/khaliqgant/holidays-norway) forked to his profile and made a few code changes. And then the package used by other Avinor repos. Now, it's forked from Khaliq's repo under `avinor-ps` organization. 
+
 A simple JavaScript library for listing the official holidays for Norway for any given year.  
 
 # Installation
