@@ -55,7 +55,7 @@ export default (year, options={}) => {
       date: moment(easter).add(49, 'days').startOf('day').format(format),
     },
     {
-      name: locale === NORWEGIAN ? '2. pinsedag' : 'Whitsmonday',
+      name: locale === NORWEGIAN ? '2. pinsedag' : 'Whitmonday',
       date: moment(easter).add(50, 'days').startOf('day').format(format),
     },
     {
