@@ -59,7 +59,7 @@ exports.default = function (year) {
     name: locale === NORWEGIAN ? '1. pinsedag' : 'Whitsunday',
     date: (0, _moment2.default)(easter).add(49, 'days').startOf('day').format(format)
   }, {
-    name: locale === NORWEGIAN ? '2. pinsedag' : 'Whitsmonday',
+    name: locale === NORWEGIAN ? '2. pinsedag' : 'Whitmonday',
     date: (0, _moment2.default)(easter).add(50, 'days').startOf('day').format(format)
   }, {
     name: locale === NORWEGIAN ? 'Nyttårsdag' : 'New years day',
