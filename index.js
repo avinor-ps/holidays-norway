@@ -27,10 +27,6 @@ export default (year, options={}) => {
   const format = options.format === '' ? format : options.format;
   return [
     {
-      name: locale === NORWEGIAN ? 'Palmesøndag' : 'Palm Sunday',
-      date: moment(easter).subtract(7, 'days').startOf('day').format(format),
-    },
-    {
       name: locale === NORWEGIAN ? 'Skjærtorsdag' : 'Maundy Thursday',
       date: moment(easter).subtract(3, 'days').startOf('day').format(format),
     },

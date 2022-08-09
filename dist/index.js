@@ -38,9 +38,6 @@ exports.default = function (year) {
   var locale = options.locale === ENGLISH ? ENGLISH : NORWEGIAN;
   var format = options.format === '' ? format : options.format;
   return [{
-    name: locale === NORWEGIAN ? 'Palmesøndag' : 'Palm Sunday',
-    date: (0, _moment2.default)(easter).subtract(7, 'days').startOf('day').format(format)
-  }, {
     name: locale === NORWEGIAN ? 'Skjærtorsdag' : 'Maundy Thursday',
     date: (0, _moment2.default)(easter).subtract(3, 'days').startOf('day').format(format)
   }, {
