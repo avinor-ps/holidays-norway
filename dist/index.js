@@ -53,10 +53,10 @@ exports.default = function (year) {
     name: locale === NORWEGIAN ? 'Kristi Himmelsprettsdag' : 'Christs Ascension Day',
     date: (0, _moment2.default)(easter).add(39, 'days').startOf('day').format(format)
   }, {
-    name: locale === NORWEGIAN ? '1. pinsedag' : 'Whitsunday',
+    name: locale === NORWEGIAN ? '1. pinsedag' : 'Whit Sunday',
     date: (0, _moment2.default)(easter).add(49, 'days').startOf('day').format(format)
   }, {
-    name: locale === NORWEGIAN ? '2. pinsedag' : 'Whitmonday',
+    name: locale === NORWEGIAN ? '2. pinsedag' : 'Whit Monday',
     date: (0, _moment2.default)(easter).add(50, 'days').startOf('day').format(format)
   }, {
     name: locale === NORWEGIAN ? 'Nyttårsdag' : 'New years day',
