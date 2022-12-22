@@ -16,12 +16,12 @@ const getEaster = (year) => {
   const n0 = (h + l + 7 * m + 114);
   const n = Math.floor(n0 / 31) - 1;
   const p = n0 % 31 + 1;
-  return new Date(year,n,p);
+  return new Date(year, n, p);
 }
 const NORWEGIAN = 'no';
 const ENGLISH = 'en';
 
-export default (year, options={}) => {
+export default (year, options = {}) => {
   const easter = getEaster(year);
   const locale = options.locale === ENGLISH ? ENGLISH : NORWEGIAN;
   const format = options.format === '' ? format : options.format;
@@ -47,11 +47,11 @@ export default (year, options={}) => {
       date: moment(easter).add(39, 'days').startOf('day').format(format),
     },
     {
-      name: locale === NORWEGIAN ? '1. pinsedag' : 'Whitsunday',
+      name: locale === NORWEGIAN ? '1. pinsedag' : 'Whit Sunday',
       date: moment(easter).add(49, 'days').startOf('day').format(format),
     },
     {
-      name: locale === NORWEGIAN ? '2. pinsedag' : 'Whitmonday',
+      name: locale === NORWEGIAN ? '2. pinsedag' : 'Whit Monday',
       date: moment(easter).add(50, 'days').startOf('day').format(format),
     },
     {
